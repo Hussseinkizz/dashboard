@@ -1,0 +1,192 @@
+$bg-primary: #5e72e4;
+
+/* custom styles */
+@mixin custom-flex($direction) {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: $direction;
+  justify-content: baseline;
+  align-items: center;
+}
+
+@mixin tab-styles {
+  width: 100%;
+  display: grid;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem auto;
+  border-radius: 4px;
+  place-items: center;
+}
+
+#custom-overides {
+  height: 100vh;
+  overflow: hidden;
+
+  .main-content.custom {
+    height: 100%;
+  }
+
+  .icon-custom-lg {
+    width: 2rem;
+    height: auto;
+  }
+
+  .custom-panels-middle {
+    @include custom-flex(row);
+  }
+
+  .navbar-left {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .navbar-brand-custom {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    padding-top: 1rem;
+  }
+
+  .navbar-brand-img.custom {
+    width: 100%;
+    height: 2rem;
+  }
+
+  .sidenav-toggler-line.custom {
+    background: #fff;
+  }
+
+  .custom-panels {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    place-items: stretch;
+
+    &-middle {
+      background: rgba(black, 0.2);
+      aspect-ratio: auto;
+    }
+  }
+
+  .panel-header {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10%;
+    background: lighten($bg-primary, 5%);
+    color: lighten($bg-primary, 20%);
+    font-weight: bold;
+    font-size: small;
+    letter-spacing: 2px;
+
+    span {
+      width: 100%;
+      display: grid;
+      padding: 1rem 2rem;
+      margin: 0.3rem auto;
+      border-radius: 4px;
+      place-items: center;
+
+      &:hover {
+        transition: colors 0.3s ease;
+        background: lighten($bg-primary, 10%);
+      }
+    }
+  }
+
+  .panel-tabs {
+    @include custom-flex(column);
+
+    &-titles {
+      @include custom-flex(row);
+      border-bottom: 1px solid rgba($bg-primary, 0.1);
+    }
+
+    .tab-title {
+      width: 100%;
+      font-size: small;
+      display: grid;
+      place-items: center;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      outline: none !important;
+      border: 2px solid transparent;
+      color: gray;
+
+      &:hover {
+        transition: colors 0.3s ease;
+        border-bottom: 2px solid lighten($bg-primary, 10%);
+      }
+      &:active {
+        transition: colors 0.3s ease;
+        color: lighten($bg-primary, 10%);
+        border-bottom: 2px solid lighten($bg-primary, 10%);
+        font-weight: 500;
+      }
+    }
+
+    .active {
+      transition: colors 0.3s ease;
+      color: lighten($bg-primary, 10%);
+      border-bottom: 2px solid lighten($bg-primary, 10%);
+      font-weight: 500;
+    }
+
+    .tabs-content {
+      height: 100%;
+      @include custom-flex(column);
+      justify-content: center;
+    }
+
+    .tab-content {
+      margin-top: 50%;
+      display: none;
+      animation: fadingEffect 1s;
+
+      p {
+        font-size: small;
+      }
+
+      @keyframes fadingEffect {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// just for decoration, I didn't want to leave it empty
+.place-holder {
+  @include custom-flex(column);
+  justify-content: center;
+  margin-top: 80%;
+
+  > div {
+    background: rgba(gray, 0.1);
+    color: rgba(gray, 0.1);
+    height: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+  }
+
+  & div:nth-child(1) {
+    width: 10rem;
+  }
+  & div:nth-child(2) {
+    width: 55%;
+  }
+  & div:nth-child(3) {
+    width: 25%;
+  }
+}
