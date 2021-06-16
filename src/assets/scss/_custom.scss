@@ -1,0 +1,131 @@
+/* Tempelate Colors */
+$primary-color: #5e72e4;
+$secondary-color: #f7fafc;
+$text-gray: #8898aa;
+$custom-white: lighten($primary-color, 100%);
+
+// top nav styles
+
+.custom-hover-1:hover {
+  background: darken($primary-color, 5%);
+}
+
+.custom-hover-2:hover {
+  background: darken($secondary-color, 5%);
+}
+
+.nav-icon {
+  width: 1.5rem;
+  height: auto;
+  color: $custom-white;
+
+  &:hover {
+    transition: colors 0.3s ease;
+    color: darken($custom-white, 10%);
+  }
+
+  &:focus {
+    transition: colors 0.3s ease;
+    color: darken($custom-white, 15%);
+  }
+}
+
+.nav-icon-sm {
+  @extend .nav-icon;
+  width: 1rem;
+}
+.nav-icon-md {
+  @extend .nav-icon;
+  width: 2rem;
+}
+
+.brand-logo {
+  width: 100%;
+  height: 2.5rem;
+}
+
+// main layout styles
+#App {
+  height: 100vh;
+  overflow: hidden;
+
+  > main section {
+    height: 100%;
+  }
+}
+
+.custom-flex {
+  min-width: 100%;
+  display: flex;
+  flex: 1 1 100%;
+}
+
+.nav-pills.custom {
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-link.custom {
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  font-size: small;
+  color: $text-gray;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  background: darken($custom-white, 3%);
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    transition: all 0.3s ease;
+    color: rgba($primary-color, 0.5);
+    border-bottom: 2px solid rgba($primary-color, 0.2);
+  }
+}
+
+.nav-link.custom.custom-active {
+  transition: all 0.3s ease;
+  color: $primary-color;
+  border-bottom: 2px solid $primary-color;
+}
+
+.nav-item.custom {
+  box-shadow: none;
+}
+
+.nav-pills .nav-item:not(:last-child) {
+  padding-right: 0rem;
+}
+
+.custom-tab {
+  padding: 4rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 4px;
+  color: $custom-white;
+
+  &:hover {
+    transition: colors 0.3s ease;
+    background: lighten($primary-color, 5%);
+    color: darken($custom-white, 10%);
+  }
+}
+
+// sidebar styles
+.navbar-inner.custom {
+  width: 15rem;
+  padding-top: 1rem;
+  cursor: pointer !important;
+
+  > .navbar-nav {
+    padding-left: 1rem;
+
+    .nav-item {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .nav-link-text {
+    padding-left: 0.5rem;
+  }
+}
